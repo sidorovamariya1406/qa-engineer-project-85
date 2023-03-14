@@ -1,0 +1,432 @@
+---
+#Проверка функциональных требований
+#Тестирование требований авторизации
+- summary: |
+    Проверка регистрации с почтой
+  requirement: |
+    Пользователь должен иметь возможность регистрации с почтой
+  prerequisites: |
+    Открыта стартовая страница Codebattle
+  test-data: |
+    - Nickname=sidorovamariya1406
+    - Email = sidorovamariya1406@gmail.com
+    - Password=secret
+  steps:
+    - Нажать Sing Up
+    - Заполнить поле Nickname
+    - Заполнить поле Email
+    - Заполнить поле Password
+    - Заполнить поле Password (подтверждение пароля)
+    - Нажать на кнопку Submit
+  expected-result: | 
+    Пользователь зарегистрирован и перешел на главную страницу Codebattle
+
+- summary: |
+    Проверка авторизации c почтой
+  requirement: |
+    Пользователь должен иметь возможность авторизации с почтой
+  prerequisites: |
+    - Пользователь зарегистрирован в Codebattle с почтой
+    - Открытата стартовая страница Codebattle
+  test-data: |
+    Nickname=sidorovamariya1406, Email = sidorovamariya1406@gmail.com, Password=secret
+  steps:
+    - Нажать Sign In
+    - Заполнить поле Email
+    - Заполнить поле Password
+    - Нажать на кнопку Submit
+  expected-result: | 
+    Пользователь перешел на главную страницу Codebattle
+
+- summary: |
+    Проверка авторизации через Github
+  requirement: |
+    Пользователь должен иметь возможность авторизации через Github
+  prerequisites: |
+    - Пользователь зарегистрирован на Github
+    - Открыта стартовая страница Codebattle
+  test-data: |
+    -
+  steps:
+    - Нажать Sign in with Github
+    - Ввести логин от Github
+    - Ввести пароль от Github
+    - Нажать на Log in
+  expected-result: | 
+    Пользователь перешел на главную страницу Codebattle
+
+- summary: |
+    Проверка авторизации через Discord
+  requirement: |
+    Пользователь должен иметь возможность авторизации через Discord
+  prerequisites: |
+    - Пользователь зарегистрирован на Discord
+    - Открыта стартовая страница Codebattle
+  test-data: |
+    -
+  steps:
+    - Нажать Sign in with Discord
+    - Ввести логин от Discord
+    - Ввести пароль от Discord
+    - Нажать на Log in
+  expected-result: | 
+    Пользователь перешел на главную страницу Codebattle
+
+- summary: |
+    Проверка авторизации незарегистрированного пользователя
+  requirement: |
+    Незарегистрированный пользователь не может быть авторизован
+  prerequisites: |
+    Открыта стартовая страница Codebattle
+  test-data: |
+    - Email = NoSignUp@gmail.com
+    - Password=NoSignUp
+  steps:
+    - Нажать Sign In
+    - Заполнить поле Email
+    - Заполнить поле Password
+    - Нажать на кнопку Submit 
+  expected-result: | 
+    Пользователь получил сообщение об ошибке
+
+#Тестирование требований к главной стрвнице
+- summary: |
+    Проверка работы переключателя With bots в рейтинге пользователей
+  requirement: |
+    При снятии флага с переключателя With bot из рейтинга должны пропасть игры с ботами
+  prerequisites: |
+    Открыта главная страница Codebattle
+  test-data: |
+    -
+  steps:
+    - В поле LEADERBOARD нажать на ссылку TOP list
+    - Снять флаг с переключателя With bot
+  expected-result: | 
+    Из рейтинга пропали игры с ботами
+
+- summary: |
+    Проверка поиска пользователя в рейтинг
+  requirement: |
+    В рейтинге есть возможность найти конкретного пользователя
+  prerequisites: |
+    - Открыта страница TOP list
+    - Искомый пользователь зарегистрирован на Codebattle 
+  test-data: |
+    Username = sidorovamariya1406
+  steps:
+    - В поле Поиск (Username) ввести имя искомого пользователя
+  expected-result: | 
+    В таблице рейтинга останутся пользователи, удовлетворяющие маске
+
+- summary: |
+    Проверка возможности сортировки рейтинга по столбцу Rating
+  requirement: |
+    Должна выполняться сортировка по столбцу Rating. При повторном нажатии в обратном порядке
+  prerequisites: |
+    Открыта страница TOP list
+  test-data: |
+    -
+  steps:
+    - Нажать на стрелочку в поле Games played
+  expected-result: | 
+    Пользователи отсартируются в порядке убывания по рейтингу. При повторном нажатии по возрастанию
+
+  summary: |
+    Проверка возможности сортировки рейтинга по столбцу Games played
+  requirement: |
+    Должна выполняться сортировка по столбцу Games played. При повторном нажатии в обратном порядке
+  prerequisites: |
+    Открыта страница TOP list
+  test-data: |
+    -
+  steps:
+    - Нажать на стрелочку в поле Games played
+  expected-result: | 
+    Пользователи отсартируются в порядке убывания по количеству сыгранных игр. При повторном нажатии по возрастанию
+
+- summary: |
+    Проверка возможности сортировки рейтинга по столбцу Joined
+  requirement: |
+    Должна выполняться сортировка по столбцу Joined. При повторном нажатии в обратном порядке
+  prerequisites: |
+    Открыта страница TOP list
+  test-data: |
+    -
+  steps:
+    - Нажать на стрелочку в поле Joined
+  expected-result: | 
+    Пользователи отсартируются в порядке убывания дате регистрации. При повторном нажатии по возрастанию
+
+- summary: |
+    Проверка возможности присоединиться к игре
+  requirement: |
+    Пользователь должен иметь возможность присоединиться к игре на вкладке LOBBY
+  prerequisites: |
+    Открыта главная страница Codebattle
+  test-data: |
+    -
+  steps:
+    - Выбрать подходящую игру на вкладке LOBBY
+    - Нажать Fight
+  expected-result: | 
+    Открылась выбранная игра
+    
+- summary: |
+    Проверка возможности наблюдать за игрой других пользователей (игра идет online)
+  requirement: |
+    Пользователь должен иметь возможность наблюдать за игрой других пользователей в online
+  prerequisites: |
+    - Открыта вкладка LOBBY
+    - Хотя бы одна игра идет сейчас
+  test-data: |
+    -
+  steps:
+    - Нажать на Show
+  expected-result: | 
+    Пользователь подключился и просматривает игру
+
+  - summary: |
+    Проверка возможности смотреть завершенные игры других пользователей
+  requirement: |
+    Пользователь должен иметь возможность смотреть завершенные игры других пользователей
+  prerequisites: |
+    Открыта вкладка COMPLETED GAME
+  test-data: |
+    -
+  steps:
+    - Нажать на Show
+  expected-result: | 
+    Пользователь подключился и просматривает игру
+
+- summary: |
+    Проверка возможности просматривать турниры
+  requirement: |
+    Пользователь должен иметь возможность просматривать турниры
+  prerequisites: |
+    - Открыдка вкладка TOURNAMENTS
+    - Существует хотя бы один турнир
+  test-data: |
+    -
+  steps:
+    - Нажать на Show
+    - Нажать на Join
+  expected-result: | 
+    Пользователь присоединился к турниру
+
+- summary: |
+    Проверка возможности создания турнира
+  requirement: |
+    Пользователь должен иметь возможность создать турнир
+  prerequisites: |
+    - Пользоатель авторизован
+    - Открыта вкладка TOURNAMENTS
+  test-data: |
+    - Name = TournamentName
+    - Type = individual
+    - Access Type = public
+    - Starts at (UTC) = 15.03.2023 18:00
+    - Level = elementary
+    - Players limit = 32
+    - Defult lauguage = js
+    - Match timeout in seconds = 177
+  steps:
+    - Нажать на ссылку You may want to create one
+    - Заполнить поле Name
+    - Выбрать Type
+    - Выбрать Access Type
+    - Задать Starts at (UTC)
+    - Выбрать Level
+    - Установить Players limit
+    - Выбрать Defult lauguage
+    - Установить Match timeout in seconds
+    - Нажать Create
+  expected-result: | 
+    Турнир успешно создан
+
+#Тестирование ребований к созданию новой игры
+- summary: |
+    Проверка создания игры с другим пользователем
+  requirement: |
+    Пользователь должен иметь возможность играть против другого пользовтеля
+  prerequisites: |
+    Открыта главная страница Codebattle
+  test-data: |
+    - Lavel = *
+    - Game Type = With other users
+    - Time control = 5 min
+    - Choose task by name or tags = rect_area
+  steps:
+    - Нажать на Create a game
+    - Выбрать Lavel
+    - Выбрать Game Type = With other users
+    - Установить Time control
+    - Выбрать игру (раскрывающийся список Choose task by name or tags)
+    - Нажать Create Battle
+  expected-result: | 
+    Создалась и открылась игра с другим пользователем
+
+- summary: |
+    Проверка создания игры с другом
+  requirement: |
+    Пользователь должен иметь возможность играть против конкретного пользователя
+  prerequisites: |
+    Открыта главная страница Codebattle
+  test-data: |
+    - Lavel = *
+    - Game Type = With other users
+    - Time control = 5 min
+    - Choose opponent  = tbb
+    - Choose task by name or tags = rect_area
+  steps:
+    - Нажать на Create a game
+    - Выбрать Lavel
+    - Выбрать Game Type = With other users
+    - Установить Time control
+    - Выбрать соперника (Choose opponent)
+    - Выбрать игру (раскрывающийся список Choose task by name or tags)
+    - Нажать Create Invite
+  expected-result: | 
+    Приглашение в игру отправлено указанному пользователю
+
+- summary: |
+    Проверка создания игры против бота
+  requirement: |
+    Пользователь должен иметь возможность играть против бота
+  prerequisites: |
+    Открыта главная страница Codebattle
+  test-data: |
+    - Lavel = *
+    - Game Type = With a bot
+    - Time control = 5 min
+    - Choose task by name or tags = rect_area
+  steps:
+    - Нажать на Create a game
+    - Выбрать Lavel
+    - Выбрать Game Type = With a bot
+    - Установить Time control
+    - Выбрать игру (раскрывающийся список Choose task by name or tags)
+    - Нажать Create Battle
+  expected-result: | 
+    Создалась и открылась игра с ботом
+   
+- summary: |
+    Проверка возможности выбрать случайную игру
+  requirement: |
+    У пользователя должна быть возможность выбрать случайную игру
+  prerequisites: |
+    Открыто окно создания игры (Create a game)
+  test-data: |
+    - Lavel = *
+    - Game Type = With a bot
+    - Time control = 5 min
+    - Choose task by name or tags = random task
+  steps:
+    - Нажать на Create a game
+    - Выбрать Lavel
+    - Выбрать Game Type = With a bot
+    - Установить Time control
+    - Выбрать игру (раскрывающийся список Choose task by name or tags)
+    - Нажать Create Battle
+    - Завершить игру
+    - Нажать на Create a game
+    - Выбрать Lavel
+    - Выбрать Game Type = With a bot
+    - Установить Time control
+    - Выбрать игру (раскрывающийся список Choose task by name or tags)
+    - Нажать Create Battle
+  expected-result: | 
+    Создастся игра. Во втором случае создастся игра отличная от игры, созданной в первый раз
+
+- summary: |
+    Проверка установки тегов к игре
+  requirement: |
+    В зависимости от выбора игры должны устанавливаться теги, по смыслу соответствующие игре
+  prerequisites: |
+    Открыто окно создания игры (Create a game)
+  test-data: |
+    - Choose task by name or tags = additive_inverse
+    - Choose task by name or tags = age_to_days
+  steps:
+    - Выбрать игру (Choose task by name or tags = additive_inverse)
+    - Зафиксировать теги
+    - Выбрать игру (Choose task by name or tags = age_to_days)
+    - Сравнить теги
+  expected-result: | 
+    При смене игр меняется набор тегов
+
+#Тестирование требований к процессу игры
+- summary: |
+    Проверка возможности остановить просмотр руководства к игре
+  requirement: |
+    Пользователь должен иметь возможность остановить просмотр руководства на каждом из шагов
+  prerequisites: |
+    Игра в процессе
+  test-data: |
+    -
+  steps:
+    - Нажать на Show guide
+    - Нажать Next
+    - Нажать Skip guide
+  expected-result: | 
+    Закрылось окно гайда. Пользватель вернулся в игру
+
+- summary: |
+    Проверка возможности выбора языка программирования
+  requirement: |
+    Пользователь должен иметь возможность выбора языка программирования
+  prerequisites: |
+    Игра в процессе  
+  test-data: |
+    Язык ппрограммирования = С++ 20
+    Язык программирования = Golang 1.19.0
+    Язык программирования = Haskell 8.4.3
+  steps:
+    - Выбрать из раскрывающегося списка язык С++ 20
+    - Выбрать из раскрывающегося списка язык Golang 1.19.0
+    - Выбрать из раскрывающегося списка язык Haskell 8.4.3
+  expected-result: | 
+    При смене языка в раскрывающемся списке язык кода в терминале меняется на выбранный
+
+- summary: |
+    Проверка переключения языка задания
+  requirement: |
+    Пользователь должен иметь возможность видеть условие задачи на русском и английском языках
+  prerequisites: |
+    Игра в процессе 
+  test-data: |
+    -
+  steps:
+    - Изменить переключатель с EN на RU
+    - Проверить результат действия
+    - Изменить переключатель с RU на EN
+    - Проверить результат действия
+  expected-result: | 
+    Задание корректно переведено с английского языка на рузкий и обратно
+
+- summary: |
+    
+  requirement: |
+    Пользователь должен иметь возможность навигации из игры и обратно
+  prerequisites: |
+    Игра в процессе
+  test-data: |
+    -
+  steps:
+    - Нажать на на Back to Home
+    - На вкладке LOBBY найти свою игру
+    - Нажать Continue
+  expected-result: | 
+    Пользователь вернулся в игру. Время вне страницы игры списалось (засчиталось как игровое)
+
+- summary: |
+    
+  requirement: |
+    
+  prerequisites: |
+     
+  test-data: |
+    -
+  steps:
+    - 
+  expected-result: | 
+    
