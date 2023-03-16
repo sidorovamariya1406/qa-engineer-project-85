@@ -3,10 +3,10 @@
   environment:
   - Microsoft Edge iPone; iPhone 12 Pro
   - Microsoft Edge Android Mobile; Samsung Galaxy A51/71
-  - Microsoft Edge iPone; iPhone 12 Pro
-  - Microsoft Edge Android Mobile; Samsung Galaxy A51/71
-  - Microsoft Edge iPone; iPhone 12 Pro
-  - Microsoft Edge Android Mobile; Samsung Galaxy A51/71
+  - Chrome iPone; iPhone 12 Pro
+  - Chrome Android Mobile; Samsung Galaxy A51/71
+  - Firefox iPone; iPhone 12 Pro
+  - Firefox Edge Android Mobile; Samsung Galaxy A51/71
   steps-to-reproduce:
   - Открыть DevTools
   - Нажать на иконку Toogle device toolbar 
@@ -15,27 +15,37 @@
   - Снять флаг с переключателя Use browser defult
   - Попеременно выбрать из раскрывающегося списка разные браузеры для мобильной версии и соответстствующие устройства в раскрывающимся списук Dimensions
   expected-result:
-  Верстка сайта сохранится. Будут видны кнопоки Sing In и Sing Up
+    Верстка сайта сохранится. Будут видны кнопоки Sing In и Sing Up
   actual-result:
-  Кнопки Sing In и Sing Up не видны пользователю сразу. Для их отображения необходимо нажимать на иконку в правом верхнем углу
+    Кнопки Sing In и Sing Up не видны пользователю сразу. Для их отображения необходимо нажимать на иконку в правом верхнем углу
 
-  - summary:
-    В мобильной версии сайта на стартовой странице нет отображения кнопок Sing In и Sing Up
+
+- summary:
+    Визуальный баг на вкладке Lobby
   environment:
-  - Microsoft Edge iPone; iPhone 12 Pro
-  - Microsoft Edge Android Mobile; Samsung Galaxy A51/71
-  - Microsoft Edge iPone; iPhone 12 Pro
-  - Microsoft Edge Android Mobile; Samsung Galaxy A51/71
-  - Microsoft Edge iPone; iPhone 12 Pro
-  - Microsoft Edge Android Mobile; Samsung Galaxy A51/71
+  - Microsoft Edge
+  - Chrome
+  - Firefox iPone
   steps-to-reproduce:
-  - Открыть DevTools
-  - Нажать на иконку Toogle device toolbar 
-  - В раскрывающимся списке Dimensions выбрать устройство
-  - Перейти на вкладку Elements 
-  - Снять флаг с переключателя Use browser defult
-  - Попеременно выбрать из раскрывающегося списка разные браузеры для мобильной версии и соответстствующие устройства в раскрывающимся списук Dimensions
+  - Открыть главную страницу Codebattle
   expected-result:
-  Верстка сайта сохранится. Будут видны кнопоки Sing In и Sing Up
+    Интерфейс страницы будет отражаться без визуальных багов
   actual-result:
-  Кнопки Sing In и Sing Up не видны пользователю сразу. Для их отображения необходимо нажимать на иконку в правом верхнем углу
+    Над иконками в столбце State визуальный баг в виде черточки
+
+- summary:
+    Визуальный баг на вкладке Lobby
+  environment:
+  - Microsoft Edge
+  - Chrome
+  - Firefox iPone
+  steps-to-reproduce:
+  - Быть авторизованным на сайте Codebattle
+  - Открыть главную страницу Codebattle
+  - Нажать на иконку профиля
+  - Нажать на Slack#codebattle
+  expected-result:
+    Пользователь перешел в Slack
+  actual-result:
+    Открылся Telrgram
+
