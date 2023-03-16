@@ -1,0 +1,41 @@
+- summary:
+    В мобильной версии сайта на стартовой странице нет отображения кнопок Sing In и Sing Up
+  environment:
+  - Microsoft Edge iPone; iPhone 12 Pro
+  - Microsoft Edge Android Mobile; Samsung Galaxy A51/71
+  - Microsoft Edge iPone; iPhone 12 Pro
+  - Microsoft Edge Android Mobile; Samsung Galaxy A51/71
+  - Microsoft Edge iPone; iPhone 12 Pro
+  - Microsoft Edge Android Mobile; Samsung Galaxy A51/71
+  steps-to-reproduce:
+  - Открыть DevTools
+  - Нажать на иконку Toogle device toolbar 
+  - В раскрывающимся списке Dimensions выбрать устройство
+  - Перейти на вкладку Elements 
+  - Снять флаг с переключателя Use browser defult
+  - Попеременно выбрать из раскрывающегося списка разные браузеры для мобильной версии и соответстствующие устройства в раскрывающимся списук Dimensions
+  expected-result:
+  Верстка сайта сохранится. Будут видны кнопоки Sing In и Sing Up
+  actual-result:
+  Кнопки Sing In и Sing Up не видны пользователю сразу. Для их отображения необходимо нажимать на иконку в правом верхнем углу
+
+  - summary:
+    В мобильной версии сайта на стартовой странице нет отображения кнопок Sing In и Sing Up
+  environment:
+  - Microsoft Edge iPone; iPhone 12 Pro
+  - Microsoft Edge Android Mobile; Samsung Galaxy A51/71
+  - Microsoft Edge iPone; iPhone 12 Pro
+  - Microsoft Edge Android Mobile; Samsung Galaxy A51/71
+  - Microsoft Edge iPone; iPhone 12 Pro
+  - Microsoft Edge Android Mobile; Samsung Galaxy A51/71
+  steps-to-reproduce:
+  - Открыть DevTools
+  - Нажать на иконку Toogle device toolbar 
+  - В раскрывающимся списке Dimensions выбрать устройство
+  - Перейти на вкладку Elements 
+  - Снять флаг с переключателя Use browser defult
+  - Попеременно выбрать из раскрывающегося списка разные браузеры для мобильной версии и соответстствующие устройства в раскрывающимся списук Dimensions
+  expected-result:
+  Верстка сайта сохранится. Будут видны кнопоки Sing In и Sing Up
+  actual-result:
+  Кнопки Sing In и Sing Up не видны пользователю сразу. Для их отображения необходимо нажимать на иконку в правом верхнем углу
